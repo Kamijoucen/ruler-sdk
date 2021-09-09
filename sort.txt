@@ -1,0 +1,27 @@
+import "collections.txt" collections;
+
+fun partition(arr, begin, end) {
+    var mid = arr[end];
+    var i = begin;
+    var j = begin;
+    while j < end {
+        if arr[j] < mid {
+            collections.Swap(arr, i, j);
+            i = i + 1;
+        }
+        j = j + 1;
+    }
+    collections.Swap(arr, i, end);
+    return i;
+}
+fun sort(subArr, begin, end) {
+    if begin >= end {
+        return;
+    }
+    var p = partition(subArr, begin, end);
+    sort(arr, begin, p - 1);
+    sort(arr, p + 1, end);
+}
+fun QuickSort(arr, len) {
+    sort(arr, 0, len - 1);
+}
