@@ -15,15 +15,13 @@ fun partition(arr, begin, end) {
     return i;
 }
 fun sort(subArr, begin, end) {
-    println("subArr", subArr);
     if begin >= end {
         return;
     }
     var p = partition(subArr, begin, end);
-    sort(arr, begin, p - 1);
-    sort(arr, p + 1, end);
+    sort(subArr, begin, p - 1);
+    sort(subArr, p + 1, end);
 }
 fun QuickSort(arr, len) {
-    println("qs inner", arr, len);
     sort(arr, 0, len - 1);
 }
